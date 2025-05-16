@@ -12,8 +12,21 @@
     <div class="container">
         <div class="welcome-screen">
             <h1>Türkiye Şehirleri Quiz</h1>
-            <p>Bu quizde, verilen şehirlerin gezilecek yerlerini bilmeye çalışacaksınız.</p>
-            <button id="start-quiz" class="btn">Quize Başla</button>
+            <p>Bu quizde, Türkiye'nin şehirleri ve gezilecek yerleri hakkında bilginizi test edebilirsiniz.</p>
+
+            <div class="quiz-type-container">
+                <h3>Quiz Türünü Seçin</h3>
+                <button id="start-city-to-place-quiz" class="btn quiz-type-btn">
+                    <div class="quiz-type-title">Şehir → Yer</div>
+                    <div class="quiz-type-desc">Verilen şehire ait olan yeri bulun</div>
+                </button>
+                <button id="start-place-to-city-quiz" class="btn quiz-type-btn">
+                    <div class="quiz-type-title">Yer → Şehir</div>
+                    <div class="quiz-type-desc">Verilen yerin hangi şehre ait olduğunu bulun</div>
+                </button>
+            </div>
+
+            <button id="start-quiz" class="btn" style="display:none;">Quize Başla</button>
             <button id="show-wrong" class="btn secondary">Yanlış Cevaplarım</button>
             <button id="show-saved" class="btn secondary">Kaydettiğim Sorular</button>
             <a href="cityExplorer.html" class="btn explore-btn">Şehirleri Keşfet</a>
@@ -23,6 +36,7 @@
             <div class="quiz-header">
                 <h2 id="question">Soru metni burada görünecek</h2>
                 <div id="city-name" class="city-name"></div>
+                <div id="quiz-type-indicator" class="quiz-type-indicator"></div>
             </div>
             <div id="answers" class="answers">
                 <!-- Cevap butonları JavaScript ile eklenecek -->

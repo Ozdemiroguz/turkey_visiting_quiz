@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const wrongAnswersList = document.getElementById('wrong-answers-list');
     const savedQuestionsList = document.getElementById('saved-questions-list');
 
+    const startCityToPlaceQuizBtn = document.getElementById('start-city-to-place-quiz');
+    const startPlaceToCityQuizBtn = document.getElementById('start-place-to-city-quiz');
+    const quizTypeIndicator = document.getElementById('quiz-type-indicator');
+
     // Quiz variables
     let cities = [];
     let currentQuestion = 0;
@@ -35,6 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentQuestionData = null; // Store current question data
     let currentQuizId = null; // Track current quiz session
     const minQuestionsBeforeFinish = 10; // Minimum questions before showing finish button
+
+    // Add a variable to track quiz type
+    let currentQuizType = 'cityToPlace'; // Default quiz type
 
     // Load cities data
     fetch('sehirler_ve_gezilecek_yerler.json')
@@ -73,6 +80,17 @@ document.addEventListener('DOMContentLoaded', function () {
     reviewWrongBtn.addEventListener('click', showWrongAnswers);
     backToHomeBtn.addEventListener('click', backToHome);
     backToHomeFromSavedBtn.addEventListener('click', backToHome);
+
+    // Update event listeners for quiz type buttons
+    startCityToPlaceQuizBtn.addEventListener('click', function () {
+        currentQuizType = 'cityToPlace';
+        startQuiz();
+    });
+
+    startPlaceToCityQuizBtn.addEventListener('click', function () {
+        currentQuizType = 'placeToCity';
+        startQuiz();
+    });
 
     // Create finish quiz button
     const finishQuizBtn = document.createElement('button');
@@ -163,6 +181,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Update stats display
         updateStatsDisplay();
+
+        // Update quiz type indicator
+        updateQuizTypeIndicator();
     }
 
     // Add wrong count variable
@@ -175,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('stats-wrong-count').textContent = wrongCount;
     }
 
-    // Load question
+    // Load question based on quiz type
     function loadQuestion() {
         // Reset state
         selectedAnswer = null;
@@ -194,6 +215,15 @@ document.addEventListener('DOMContentLoaded', function () {
             finishQuizBtn.style.display = 'none';
         }
 
+        if (currentQuizType === 'cityToPlace') {
+            loadCityToPlaceQuestion();
+        } else {
+            loadPlaceToCityQuestion();
+        }
+    }
+
+    // Original quiz type - City to Place
+    function loadCityToPlaceQuestion() {
         // Get random city
         const randomCityIndex = Math.floor(Math.random() * cities.length);
         const city = cities[randomCityIndex];
@@ -239,16 +269,110 @@ document.addEventListener('DOMContentLoaded', function () {
         answers.sort(() => 0.5 - Math.random());
 
         // Add answers to DOM
+        renderAnswerOptions(answers);
+
+        // Store current question data
+        currentQuestionData = {
+            city: city.city,
+            question: `Hangisi ${city.city} şehrinde bulunan bir gezilecek yerdir?`,
+            correctPlace: correctPlace,
+            answers: answers,
+            quizType: 'cityToPlace'
+        };
+    }
+
+    // New quiz type - Place to City
+    function loadPlaceToCityQuestion() {
+        // Get random city
+        const randomCityIndex = Math.floor(Math.random() * cities.length);
+        const city = cities[randomCityIndex];
+
+        // Get random place from that city
+        const randomPlaceIndex = Math.floor(Math.random() * city.places.length);
+        const place = city.places[randomPlaceIndex];
+
+        // Set question
+        cityNameText.textContent = place.name;
+        questionText.textContent = `"${place.name}" hangi şehirde bulunmaktadır?`;
+
+        // Add place description to the question to provide context
+        const placeDescElement = document.createElement('div');
+        placeDescElement.className = 'place-question-description';
+        placeDescElement.textContent = `Açıklama: ${place.description}`;
+
+        // Clear any existing description and add the new one
+        const existingDesc = questionText.nextElementSibling;
+        if (existingDesc && existingDesc.classList.contains('place-question-description')) {
+            existingDesc.remove();
+        }
+        questionText.insertAdjacentElement('afterend', placeDescElement);
+
+        // Get 3 wrong cities
+        let wrongCities = [];
+        let availableCities = [...cities];
+        availableCities.splice(randomCityIndex, 1); // Remove correct city
+
+        // Shuffle available cities
+        availableCities.sort(() => 0.5 - Math.random());
+
+        // Get 3 different cities
+        for (let i = 0; i < 3 && i < availableCities.length; i++) {
+            wrongCities.push(availableCities[i]);
+        }
+
+        // Create answers array with correct and wrong cities - NO DESCRIPTIONS
+        let answers = [
+            {
+                text: city.city,
+                description: '', // Empty description for correct answer
+                correct: true
+            },
+            ...wrongCities.map(wrongCity => ({
+                text: wrongCity.city,
+                description: '', // Empty description for wrong answers too
+                correct: false
+            }))
+        ];
+
+        // Shuffle answers
+        answers.sort(() => 0.5 - Math.random());
+
+        // Add answers to DOM with modified rendering for this quiz type
+        renderAnswerOptions(answers, 'placeToCity');
+
+        // Store current question data
+        currentQuestionData = {
+            city: city.city,
+            place: place.name,
+            placeDescription: place.description,
+            question: `"${place.name}" hangi şehirde bulunmaktadır?`,
+            answers: answers,
+            quizType: 'placeToCity'
+        };
+    }
+
+    // Shared function to render answer options - modified to handle quiz types differently
+    function renderAnswerOptions(answers, quizType = 'cityToPlace') {
         answersContainer.innerHTML = '';
         answers.forEach((answer, index) => {
             const button = document.createElement('button');
             button.classList.add('answer-btn');
 
-            // Create HTML structure for the answer with name and description
-            const answerHTML = `
-                <div class="answer-name">${answer.text}</div>
-                <div class="answer-description">${answer.description}</div>
-            `;
+            // Create HTML for the answer based on quiz type
+            let answerHTML;
+
+            if (quizType === 'placeToCity') {
+                // For place-to-city, just show the city name without description
+                answerHTML = `
+                    <div class="answer-name">${answer.text}</div>
+                `;
+            } else {
+                // For city-to-place, show both name and description
+                answerHTML = `
+                    <div class="answer-name">${answer.text}</div>
+                    <div class="answer-description">${answer.description}</div>
+                `;
+            }
 
             button.innerHTML = answerHTML;
             button.dataset.index = index;
@@ -259,14 +383,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             answersContainer.appendChild(button);
         });
-
-        // Store current question data
-        currentQuestionData = {
-            city: city.city,
-            question: `Hangisi ${city.city} şehrinde bulunan bir gezilecek yerdir?`,
-            correctPlace: correctPlace,
-            answers: answers
-        };
     }
 
     // Select answer
@@ -827,6 +943,19 @@ document.addEventListener('DOMContentLoaded', function () {
             savedQuestions = JSON.parse(saved);
         } else {
             savedQuestions = [];
+        }
+    }
+
+    // Add this as a new function
+    function updateQuizTypeIndicator() {
+        quizTypeIndicator.className = 'quiz-type-indicator';
+
+        if (currentQuizType === 'cityToPlace') {
+            quizTypeIndicator.textContent = 'Şehir → Yer Quizi';
+            quizTypeIndicator.classList.add('city-to-place');
+        } else {
+            quizTypeIndicator.textContent = 'Yer → Şehir Quizi';
+            quizTypeIndicator.classList.add('place-to-city');
         }
     }
 });

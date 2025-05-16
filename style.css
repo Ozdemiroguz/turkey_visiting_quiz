@@ -364,3 +364,81 @@ p {
 .explore-btn:hover {
     background-color: #8e44ad;
 }
+
+.quiz-type-container {
+    margin: 20px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f8f9fa;
+}
+
+.quiz-type-container h3 {
+    margin-top: 0;
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.quiz-type-btn {
+    margin-top: 10px;
+    text-align: left;
+    padding: 15px;
+}
+
+.quiz-type-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.quiz-type-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#start-city-to-place-quiz {
+    background-color: #3498db;
+}
+
+#start-city-to-place-quiz:hover {
+    background-color: #2980b9;
+}
+
+#start-place-to-city-quiz {
+    background-color: #e67e22;
+}
+
+#start-place-to-city-quiz:hover {
+    background-color: #d35400;
+}
+
+.quiz-type-indicator {
+    text-align: center;
+    padding: 5px 15px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 0 auto 15px auto;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.quiz-type-indicator.city-to-place {
+    background-color: #3498db;
+}
+
+.quiz-type-indicator.place-to-city {
+    background-color: #e67e22;
+}
+
+.place-question-description {
+    font-style: italic;
+    color: #666;
+    margin: -10px 0 20px 0;
+    padding: 5px 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    font-size: 14px;
+    border-left: 3px solid #3498db;
+}
