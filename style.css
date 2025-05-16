@@ -413,6 +413,14 @@ p {
     background-color: #d35400;
 }
 
+#start-mixed-quiz {
+    background-color: #9b59b6;
+}
+
+#start-mixed-quiz:hover {
+    background-color: #8e44ad;
+}
+
 .quiz-type-indicator {
     text-align: center;
     padding: 5px 15px;
@@ -430,6 +438,10 @@ p {
 
 .quiz-type-indicator.place-to-city {
     background-color: #e67e22;
+}
+
+.quiz-type-indicator.mixed-quiz {
+    background: linear-gradient(90deg, #3498db 0%, #9b59b6 50%, #e67e22 100%);
 }
 
 .place-question-description {

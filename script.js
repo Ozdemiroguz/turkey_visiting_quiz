@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const startPlaceToCityQuizBtn = document.getElementById('start-place-to-city-quiz');
     const quizTypeIndicator = document.getElementById('quiz-type-indicator');
 
+    // Add the new button to event listeners at the beginning
+    const startMixedQuizBtn = document.getElementById('start-mixed-quiz');
+
     // Quiz variables
     let cities = [];
     let currentQuestion = 0;
@@ -84,11 +87,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update event listeners for quiz type buttons
     startCityToPlaceQuizBtn.addEventListener('click', function () {
         currentQuizType = 'cityToPlace';
+        updateQuizTypeIndicator();  // Add this line
         startQuiz();
     });
 
     startPlaceToCityQuizBtn.addEventListener('click', function () {
         currentQuizType = 'placeToCity';
+        updateQuizTypeIndicator();  // Add this line
+        startQuiz();
+    });
+
+    // Add event listener for mixed quiz button
+    startMixedQuizBtn.addEventListener('click', function () {
+        currentQuizType = 'mixed';
         startQuiz();
     });
 
@@ -196,6 +207,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('stats-wrong-count').textContent = wrongCount;
     }
 
+    // Add a variable to track the current question type (for mixed mode)
+    let currentQuestionType = 'cityToPlace';
+
     // Load question based on quiz type
     function loadQuestion() {
         // Reset state
@@ -215,11 +229,30 @@ document.addEventListener('DOMContentLoaded', function () {
             finishQuizBtn.style.display = 'none';
         }
 
-        if (currentQuizType === 'cityToPlace') {
+        // For mixed quiz type, randomly choose between the two question types
+        if (currentQuizType === 'mixed') {
+            // Randomly decide which type of question to show (50% chance each)
+            const questionType = Math.random() < 0.5 ? 'cityToPlace' : 'placeToCity';
+
+            if (questionType === 'cityToPlace') {
+                loadCityToPlaceQuestion();
+                // Update the current type for the indicator
+                currentQuestionType = 'cityToPlace';
+            } else {
+                loadPlaceToCityQuestion();
+                // Update the current type for the indicator
+                currentQuestionType = 'placeToCity';
+            }
+        } else if (currentQuizType === 'cityToPlace') {
             loadCityToPlaceQuestion();
+            currentQuestionType = 'cityToPlace';
         } else {
             loadPlaceToCityQuestion();
+            currentQuestionType = 'placeToCity';
         }
+
+        // Update the quiz type indicator
+        updateQuizTypeIndicator();
     }
 
     // Original quiz type - City to Place
@@ -599,37 +632,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function createQuizSessionSelector() {
         // Create container
         const selectorContainer = document.createElement('div');
-        selectorContainer.className = 'session-selector-container';
-
-        // Create label
-        const selectorLabel = document.createElement('label');
-        selectorLabel.htmlFor = 'quiz-session-selector';
-        selectorLabel.textContent = 'Quiz oturumunu seçin: ';
-
-        // Create select element
-        const selector = document.createElement('select');
-        selector.id = 'quiz-session-selector';
-        selector.className = 'quiz-session-selector';
-
-        // Add change event listener
-        selector.addEventListener('change', function () {
-            renderWrongAnswers(this.value);
-        });
-
-        // Add elements to container
-        selectorContainer.appendChild(selectorLabel);
-        selectorContainer.appendChild(selector);
-
-        // Add container to wrong answers container, after the title
-        const title = wrongAnswersContainer.querySelector('h2');
-        title.insertAdjacentElement('afterend', selectorContainer);
-
-        // Update the selector options
-        updateQuizSessionSelector();
-    }
-
-    // Update quiz session selector options
-    function updateQuizSessionSelector() {
         const selector = document.getElementById('quiz-session-selector');
         if (!selector) return;
 
@@ -953,7 +955,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (currentQuizType === 'cityToPlace') {
             quizTypeIndicator.textContent = 'Şehir → Yer Quizi';
             quizTypeIndicator.classList.add('city-to-place');
-        } else {
+        } else if (currentQuizType === 'placeToCity') {
             quizTypeIndicator.textContent = 'Yer → Şehir Quizi';
             quizTypeIndicator.classList.add('place-to-city');
         }
