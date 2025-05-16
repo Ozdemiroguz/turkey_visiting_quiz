@@ -20,10 +20,14 @@ body {
     justify-content: center;
 }
 
+/* Import city explorer styles */
+@import url('cityExplorer.css');
+
 .welcome-screen,
 .quiz-container,
 .results-container,
-.wrong-answers-container {
+.wrong-answers-container,
+.saved-questions-container {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
@@ -346,4 +350,17 @@ p {
     border-radius: 4px;
     flex-grow: 1;
     font-size: 14px;
+}
+
+.explore-btn {
+    background-color: #9b59b6;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.explore-btn:hover {
+    background-color: #8e44ad;
 }

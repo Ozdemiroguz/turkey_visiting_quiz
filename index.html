@@ -16,6 +16,7 @@
             <button id="start-quiz" class="btn">Quize Başla</button>
             <button id="show-wrong" class="btn secondary">Yanlış Cevaplarım</button>
             <button id="show-saved" class="btn secondary">Kaydettiğim Sorular</button>
+            <a href="cityExplorer.html" class="btn explore-btn">Şehirleri Keşfet</a>
         </div>
 
         <div class="quiz-container" style="display:none;">
@@ -59,9 +60,34 @@
             </div>
             <button id="back-to-home-from-saved" class="btn">Ana Sayfaya Dön</button>
         </div>
+
+        <!-- New city explorer container -->
+        <div class="city-explorer-container" style="display:none;">
+            <h2>Şehirleri Keşfedin</h2>
+            <div class="city-navigation">
+                <button id="prev-city" class="nav-btn">◀ Önceki</button>
+                <h3 id="current-city-name">Şehir Adı</h3>
+                <button id="next-city" class="nav-btn">Sonraki ▶</button>
+            </div>
+
+            <div class="places-container">
+                <h4>Gezilecek Yerler</h4>
+                <div id="places-list" class="places-list"></div>
+
+                <div class="add-place-form">
+                    <h4>Yeni Yer Ekle</h4>
+                    <input type="text" id="new-place-name" placeholder="Yer adı" class="place-input">
+                    <input type="text" id="new-place-description" placeholder="Açıklama" class="place-input">
+                    <button id="add-place-btn" class="btn secondary">Ekle</button>
+                </div>
+            </div>
+
+            <button id="back-to-home-from-explorer" class="btn">Ana Sayfaya Dön</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="cityExplorer.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye Şehirleri - Keşfet</title>
+    <link rel="stylesheet" href="cityExplorer.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Türkiye Şehirleri Keşif</h1>
+
+        <div class="city-explorer-container">
+            <div class="city-navigation">
+                <button id="prev-city" class="nav-btn">◀ Önceki</button>
+                <h2 id="current-city-name">Şehir Adı</h2>
+                <button id="next-city" class="nav-btn">Sonraki ▶</button>
+            </div>
+
+            <div class="places-container">
+                <h3>Gezilecek Yerler</h3>
+                <div id="places-list" class="places-list"></div>
+
+                <div class="add-place-form">
+                    <h4>Yeni Yer Ekle</h4>
+                    <input type="text" id="new-place-name" placeholder="Yer adı" class="place-input">
+                    <input type="text" id="new-place-description" placeholder="Açıklama" class="place-input">
+                    <button id="add-place-btn" class="btn secondary">Ekle</button>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn">Ana Sayfaya Dön</a>
+        </div>
+    </div>
+
+    <script src="cityExplorer.js"></script>
+</body>
+
+</html>
