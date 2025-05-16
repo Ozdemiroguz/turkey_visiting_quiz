@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Türkiye Şehirleri Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="welcome-screen">
+            <h1>Türkiye Şehirleri Quiz</h1>
+            <p>Bu quizde, verilen şehirlerin gezilecek yerlerini bilmeye çalışacaksınız.</p>
+            <button id="start-quiz" class="btn">Quize Başla</button>
+            <button id="show-wrong" class="btn secondary">Yanlış Cevaplarım</button>
+        </div>
+
+        <div class="quiz-container" style="display:none;">
+            <div class="quiz-header">
+                <h2 id="question">Soru metni burada görünecek</h2>
+                <div id="city-name" class="city-name"></div>
+            </div>
+            <div id="answers" class="answers">
+                <!-- Cevap butonları JavaScript ile eklenecek -->
+            </div>
+            <div class="controls">
+                <div class="progress">
+                    <span id="current-question">1</span>/<span id="total-questions">10</span>
+                </div>
+                <button id="next-btn" class="btn" disabled>Sonraki Soru</button>
+            </div>
+        </div>
+
+        <div class="results-container" style="display:none;">
+            <h2>Quiz Tamamlandı</h2>
+            <div class="score">
+                <span id="score">0</span>/<span id="total">10</span>
+            </div>
+            <p>Doğru cevapladınız!</p>
+            <button id="restart-quiz" class="btn">Tekrar Başla</button>
+            <button id="review-wrong" class="btn secondary">Yanlışlarımı Gör</button>
+        </div>
+
+        <div class="wrong-answers-container" style="display:none;">
+            <h2>Yanlış Cevapladığınız Sorular</h2>
+            <div id="wrong-answers-list">
+                <!-- Yanlış cevaplar JavaScript ile eklenecek -->
+            </div>
+            <button id="back-to-home" class="btn">Ana Sayfaya Dön</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

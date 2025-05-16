@@ -1,0 +1,1382 @@
+[
+  {
+    "id": 1,
+    "city": "Adıyaman",
+    "places": [
+      {
+        "name": "Nemrut Dağı",
+        "description": "Gün doğumunda dev heykellerle eşsiz manzara."
+      },
+      {
+        "name": "Cendere Köprüsü",
+        "description": "Roma döneminden kalan sağlam taş köprü."
+      },
+      {
+        "name": "Arsemia Antik Kenti",
+        "description": "Kommagene uygarlığının yönetim merkezi."
+      },
+      {
+        "name": "Perre Antik Kenti",
+        "description": "Kaya mezarlarıyla dikkat çeker."
+      },
+      {
+        "name": "Adıyaman Müzesi",
+        "description": "Kommagene eserlerinin sergilendiği müze."
+      },
+      {
+        "name": "Kahta Kalesi",
+        "description": "Tarihi kalıntılar ve vadi manzarası."
+      },
+      {
+        "name": "Karakuş Tümülüsü",
+        "description": "Kraliyet kadınlarına ait mezar anıtı."
+      },
+      {
+        "name": "Gerger Kalesi",
+        "description": "Fırat Nehri'ne hâkim antik kale."
+      },
+      {
+        "name": "Gölbaşı Gölleri",
+        "description": "Sakin doğası ve kuş gözlemiyle bilinir."
+      },
+      {
+        "name": "Sofraz Tümülüsü",
+        "description": "Arkeolojik kazılarla keşfedilen mezar alanı."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "city": "Adana",
+    "places": [
+      {
+        "name": "Taşköprü",
+        "description": "Roma’dan günümüze kullanılan tarihi köprü."
+      },
+      {
+        "name": "Sabancı Merkez Camii",
+        "description": "Türkiye'nin en büyük camilerinden biri."
+      },
+      {
+        "name": "Seyhan Baraj Gölü",
+        "description": "Şehir merkezinde doğayla iç içe alan."
+      },
+      {
+        "name": "Atatürk Parkı",
+        "description": "Şehrin yeşil kalbi."
+      },
+      {
+        "name": "Adana Merkez Park",
+        "description": "Türkiye'nin en büyük parklarından."
+      },
+      {
+        "name": "Adana Sinema Müzesi",
+        "description": "Türk sinemasına dair detaylı bilgiler."
+      },
+      {
+        "name": "Adana Arkeoloji Müzesi",
+        "description": "Tarihi zenginlikleri barındırır."
+      },
+      {
+        "name": "Büyük Saat Kulesi",
+        "description": "Osmanlı döneminden kalan saat kulesi."
+      },
+      {
+        "name": "Anavarza Antik Kenti",
+        "description": "Mozaikleri ve dev surlarıyla ünlü."
+      },
+      {
+        "name": "Varda Köprüsü",
+        "description": "James Bond filmiyle ün kazanmış demiryolu köprüsü."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "city": "Afyon",
+    "places": [
+      {
+        "name": "Afyonkarahisar Kalesi",
+        "description": "Şehrin sembolü, yüksek kayalık üzerinde."
+      },
+      {
+        "name": "Frig Vadisi",
+        "description": "Kaya oyma yapılar ve mistik atmosfer."
+      },
+      {
+        "name": "Afyon Ulu Camii",
+        "description": "Ahşap direkli Selçuklu eseri."
+      },
+      {
+        "name": "Afyon Müzesi",
+        "description": "Frig, Roma ve Bizans eserleriyle dolu."
+      },
+      {
+        "name": "Gazlıgöl Kaplıcaları",
+        "description": "Termal turizm merkezi."
+      },
+      {
+        "name": "Ayazini Köyü",
+        "description": "Kaya yerleşimleri ve oyma kiliseler."
+      },
+      {
+        "name": "İscehisar Peri Bacaları",
+        "description": "Volkanik kaya oluşumları."
+      },
+      {
+        "name": "Şuhut Atatürk Evi",
+        "description": "Büyük Taarruz öncesi karargâh."
+      },
+      {
+        "name": "Afyonkarahisar Taş Medrese",
+        "description": "Tarihi eğitim kurumu."
+      },
+      {
+        "name": "Sultan Divani Mevlevihanesi",
+        "description": "Mevlevi kültürünün önemli merkezi."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "city": "Antalya",
+    "places": [
+      {
+        "name": "Kaleiçi",
+        "description": "Osmanlı evleri ve dar taş sokaklar."
+      },
+      {
+        "name": "Düden Şelalesi",
+        "description": "Şehir merkezinde doğal şelale keyfi."
+      },
+      {
+        "name": "Konyaaltı Plajı",
+        "description": "Toroslarla birleşen masmavi deniz."
+      },
+      {
+        "name": "Antalya Müzesi",
+        "description": "Antik dönem koleksiyonlarıyla ünlü."
+      },
+      {
+        "name": "Hadrian Kapısı",
+        "description": "Roma İmparatoru adına yapılmış anıtsal kapı."
+      },
+      {
+        "name": "Aspendos Antik Tiyatrosu",
+        "description": "Hâlâ kullanılan devasa antik sahne."
+      },
+      {
+        "name": "Olympos Antik Kenti",
+        "description": "Doğa ve tarihin iç içe geçtiği alan."
+      },
+      {
+        "name": "Termessos",
+        "description": "Dağlar arasında kurulu savunmasıyla ünlü antik kent."
+      },
+      {
+        "name": "Phaselis Antik Kenti",
+        "description": "Sahil kenarında antik liman şehri."
+      },
+      {
+        "name": "Saklıkent Kanyonu",
+        "description": "Yazın bile serin kalabilen doğa harikası."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "city": "Artvin",
+    "places": [
+      {
+        "name": "Karagöl Sahara Milli Parkı",
+        "description": "Göl ve ormanla çevrili doğal cennet."
+      },
+      {
+        "name": "Mençuna Şelalesi",
+        "description": "Orman içindeki yüksekten akan şelale."
+      },
+      {
+        "name": "Hatila Vadisi Milli Parkı",
+        "description": "Cam terasıyla ünlü uçurum manzarası."
+      },
+      {
+        "name": "Şavşat Karagöl",
+        "description": "Sessizlik ve doğa severler için ideal alan."
+      },
+      {
+        "name": "Ardanuç Kalesi",
+        "description": "Tarihi Gürcü mimarisinin izleri."
+      },
+      {
+        "name": "Artvin Kalesi",
+        "description": "Şehre hâkim tepede konumlanır."
+      },
+      {
+        "name": "Camili (Macahel) Köyü",
+        "description": "Türkiye’nin ilk biyosfer rezervi."
+      },
+      {
+        "name": "Maral Şelalesi",
+        "description": "Gürül gürül akan yüksek şelale."
+      },
+      {
+        "name": "Barhal Kilisesi",
+        "description": "Ortaçağ Gürcü kilisesi."
+      },
+      {
+        "name": "Atabarı Kayak Merkezi",
+        "description": "Kış sporları için gelişmekte olan merkez."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "city": "Ankara",
+    "places": [
+      {
+        "name": "Anıtkabir",
+        "description": "Atatürk’ün ebedi istirahatgahı."
+      },
+      {
+        "name": "Ankara Kalesi",
+        "description": "Şehre hâkim konumuyla tarihi kale."
+      },
+      {
+        "name": "Anadolu Medeniyetleri Müzesi",
+        "description": "Zengin arkeolojik koleksiyonu ile dikkat çeker."
+      },
+      {
+        "name": "Etnografya Müzesi",
+        "description": "Türk kültürüne dair geniş bir koleksiyon."
+      },
+      {
+        "name": "Atakule",
+        "description": "Ankara'nın simgesi haline gelmiş dönme restoranlı kule."
+      },
+      {
+        "name": "Kuğulu Park",
+        "description": "Kuğularıyla meşhur huzurlu şehir parkı."
+      },
+      {
+        "name": "Gençlik Parkı",
+        "description": "Eğlence alanları ve göletiyle bilinir."
+      },
+      {
+        "name": "CerModern",
+        "description": "Modern sanatın başkenti."
+      },
+      {
+        "name": "Hacı Bayram Veli Camii",
+        "description": "Tarihi ve manevi merkez."
+      },
+      {
+        "name": "ODTÜ Ormanı",
+        "description": "Şehir içinde doğayla iç içe yürüyüş rotaları."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "city": "Balıkesir",
+    "places": [
+      {
+        "name": "Cunda Adası",
+        "description": "Taş sokaklar ve balık restoranlarıyla ünlü."
+      },
+      {
+        "name": "Ayvalık Taksiyarhis Kilisesi",
+        "description": "Müzeye dönüştürülmüş tarihi kilise."
+      },
+      {
+        "name": "Sarımsaklı Plajı",
+        "description": "Uzun ve temiz Ege sahili."
+      },
+      {
+        "name": "Kazdağları Milli Parkı",
+        "description": "Oksijen deposu doğa cenneti."
+      },
+      {
+        "name": "Kuş Cenneti Milli Parkı",
+        "description": "Göçmen kuş gözlemi için ideal alan."
+      },
+      {
+        "name": "Manyas Gölü",
+        "description": "Kuş türleriyle bilinen doğa harikası."
+      },
+      {
+        "name": "Şeytan Sofrası",
+        "description": "Gün batımı manzarasıyla efsanevi tepe."
+      },
+      {
+        "name": "Daskyleion Antik Kenti",
+        "description": "Tarih boyunca farklı medeniyetlerin izlerini taşır."
+      },
+      {
+        "name": "Zağnos Paşa Camii",
+        "description": "Balıkesir’in simge camilerinden biri."
+      },
+      {
+        "name": "Balıkesir Saat Kulesi",
+        "description": "Şehir meydanında dikkat çeken saat kulesi."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "city": "Bolu",
+    "places": [
+      {
+        "name": "Abant Gölü",
+        "description": "Göl manzaralı doğa yürüyüşleri."
+      },
+      {
+        "name": "Yedigöller Milli Parkı",
+        "description": "Yedi gölden oluşan doğa harikası."
+      },
+      {
+        "name": "Gölcük Tabiat Parkı",
+        "description": "Kartpostallık göl manzarası."
+      },
+      {
+        "name": "Kartalkaya Kayak Merkezi",
+        "description": "Kış sporları için önemli merkez."
+      },
+      {
+        "name": "Mudurnu",
+        "description": "Osmanlı mimarisiyle dolu tarihi kasaba."
+      },
+      {
+        "name": "Göynük",
+        "description": "Tarihi evleri ve Zafer Kulesi ile tanınır."
+      },
+      {
+        "name": "Seben Kaya Evleri",
+        "description": "Tarihi kaya yerleşimleri."
+      },
+      {
+        "name": "Akkaya Travertenleri",
+        "description": "Doğal oluşumlarla kaplı alan."
+      },
+      {
+        "name": "Bolu Müzesi",
+        "description": "Arkeolojik ve etnografik koleksiyonlar içerir."
+      },
+      {
+        "name": "Tokadi Hayreddin Türbesi",
+        "description": "Manevi ziyaret alanı."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "city": "Çanakkale",
+    "places": [
+      {
+        "name": "Truva Antik Kenti",
+        "description": "Efsanevi Truva Atı ile bilinir."
+      },
+      {
+        "name": "Assos Antik Kenti",
+        "description": "Felsefe ve tarih dolu antik kent."
+      },
+      {
+        "name": "Çanakkale Şehitler Abidesi",
+        "description": "Kurtuluş mücadelesinin simgesi."
+      },
+      {
+        "name": "Kilitbahir Kalesi",
+        "description": "Boğazı savunan tarihi kale."
+      },
+      {
+        "name": "Aynalı Çarşı",
+        "description": "Türküye konu olmuş tarihi çarşı."
+      },
+      {
+        "name": "Bozcaada",
+        "description": "Şarapları ve taş evleriyle ünlü ada."
+      },
+      {
+        "name": "Gökçeada",
+        "description": "Türkiye'nin en büyük adası ve doğal güzellikleri."
+      },
+      {
+        "name": "Tenedos (Bozcaada) Kalesi",
+        "description": "Adanın savunmasını sağlayan yapı."
+      },
+      {
+        "name": "Troya Müzesi",
+        "description": "Troya eserlerini modern sunumla anlatır."
+      },
+      {
+        "name": "Gelibolu Yarımadası",
+        "description": "Anzak Koyu ve savaş alanlarıyla anlamlı bir coğrafya."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "city": "Denizli",
+    "places": [
+      {
+        "name": "Pamukkale Travertenleri",
+        "description": "Beyaz kalsiyum terasları."
+      },
+      {
+        "name": "Hierapolis Antik Kenti",
+        "description": "Antik tiyatro ve nekropol."
+      },
+      {
+        "name": "Laodikeia Antik Kenti",
+        "description": "Antik ticaret ve din merkezi."
+      },
+      {
+        "name": "Kaklık Mağarası",
+        "description": "Yer altındaki Pamukkale."
+      },
+      {
+        "name": "Denizli Teleferik ve Bağbaşı Yaylası",
+        "description": "Doğa ve manzara keyfi."
+      },
+      {
+        "name": "Honaz Dağı Milli Parkı",
+        "description": "Yürüyüş ve piknik için ideal."
+      },
+      {
+        "name": "Denizli Atatürk ve Etnografya Müzesi",
+        "description": "Yerel kültür mirası."
+      },
+      {
+        "name": "Tripolis Antik Kenti",
+        "description": "Mermer yapılarıyla dikkat çeker."
+      },
+      {
+        "name": "Akhan Kervansarayı",
+        "description": "Selçuklu döneminden han yapısı."
+      },
+      {
+        "name": "Servergazi Türbesi",
+        "description": "Manevi ziyaret noktası."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "city": "Diyarbakır",
+    "places": [
+      {
+        "name": "Diyarbakır Surları",
+        "description": "UNESCO korumasında, tarihi savunma yapısı."
+      },
+      {
+        "name": "Hevsel Bahçeleri",
+        "description": "Mezopotamya’nın verimli bahçeleri."
+      },
+      {
+        "name": "Ulu Camii",
+        "description": "Anadolu’nun en eski camilerinden."
+      },
+      {
+        "name": "Hasan Paşa Hanı",
+        "description": "Tarihi çarşı ve kahvaltı mekânı."
+      },
+      {
+        "name": "On Gözlü Köprü",
+        "description": "Dicle Nehri üzerindeki tarihi köprü."
+      },
+      {
+        "name": "Dört Ayaklı Minare",
+        "description": "Mimarisiyle farklı cami minaresi."
+      },
+      {
+        "name": "Ziya Gökalp Müzesi",
+        "description": "Ünlü düşünürün doğduğu ev."
+      },
+      {
+        "name": "Cemil Paşa Konağı",
+        "description": "Tarih ve kültür müzesi."
+      },
+      {
+        "name": "İçkale",
+        "description": "Diyarbakır’ın en eski yerleşim alanı."
+      },
+      {
+        "name": "Surp Giragos Ermeni Kilisesi",
+        "description": "Restorasyonuyla öne çıkan ibadethane."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "city": "Edirne",
+    "places": [
+      {
+        "name": "Selimiye Camii",
+        "description": "Mimar Sinan’ın ustalık eseri."
+      },
+      {
+        "name": "Eski Cami",
+        "description": "Kaligrafi süslemeleriyle ünlü."
+      },
+      {
+        "name": "Üç Şerefeli Camii",
+        "description": "Farklı minare mimarisi."
+      },
+      {
+        "name": "Meriç Köprüsü",
+        "description": "Gün batımı manzaralı tarihi köprü."
+      },
+      {
+        "name": "Edirne Sarayı",
+        "description": "Osmanlı saray kalıntıları."
+      },
+      {
+        "name": "Karaağaç Tren Garı",
+        "description": "Lozan Anıtı'nın bulunduğu tarihi gar."
+      },
+      {
+        "name": "Sağlık Müzesi (Bayezid Külliyesi)",
+        "description": "Osmanlı tıp tarihi."
+      },
+      {
+        "name": "Edirne Arkeoloji ve Etnografya Müzesi",
+        "description": "Zengin tarihi koleksiyon."
+      },
+      {
+        "name": "Ali Paşa Çarşısı",
+        "description": "Geleneksel alışveriş noktası."
+      },
+      {
+        "name": "Lozan Anıtı ve Müzesi",
+        "description": "Tarihi antlaşmanın simgesi."
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "city": "Erzurum",
+    "places": [
+      {
+        "name": "Palandöken Kayak Merkezi",
+        "description": "Uzun pistleriyle ünlü kayak merkezi."
+      },
+      {
+        "name": "Çifte Minareli Medrese",
+        "description": "Selçuklu mimarisi örneği."
+      },
+      {
+        "name": "Erzurum Kalesi",
+        "description": "Şehre hâkim yüksek tepe üzerindeki kale."
+      },
+      {
+        "name": "Ulu Camii",
+        "description": "Selçuklu dönemi camii."
+      },
+      {
+        "name": "Yakutiye Medresesi",
+        "description": "Tarihi eğitim kurumu ve müze."
+      },
+      {
+        "name": "Nene Hatun Tarihi Milli Parkı",
+        "description": "93 Harbi’nin kahramanına adanmış."
+      },
+      {
+        "name": "Aziziye Tabyaları",
+        "description": "Osmanlı savunma hattı."
+      },
+      {
+        "name": "Erzurum Kongre Binası",
+        "description": "Cumhuriyet tarihinin önemli yapısı."
+      },
+      {
+        "name": "Tortum Şelalesi",
+        "description": "Türkiye'nin en yüksek şelalelerinden."
+      },
+      {
+        "name": "Oltu Taşı Çarşısı",
+        "description": "Sadece bu yörede çıkan siyah taşın satışı."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "city": "Eskişehir",
+    "places": [
+      {
+        "name": "Odunpazarı Evleri",
+        "description": "Osmanlı dönemine ait restore edilmiş evler."
+      },
+      {
+        "name": "Sazova Bilim Kültür ve Sanat Parkı",
+        "description": "Masal Şatosu ile dikkat çeker."
+      },
+      {
+        "name": "Porsuk Çayı ve Gondol Turları",
+        "description": "Şehir içinde Venedik havası."
+      },
+      {
+        "name": "Eskişehir Balmumu Heykeller Müzesi",
+        "description": "Ünlü isimlerin balmumu heykelleri."
+      },
+      {
+        "name": "Yılmaz Büyükerşen Sanat ve Tasarım Merkezi",
+        "description": "Sanatın kalbi."
+      },
+      {
+        "name": "Kentpark",
+        "description": "Plajlı yapay göletle öne çıkar."
+      },
+      {
+        "name": "ETİ Arkeoloji Müzesi",
+        "description": "Zengin kazı eserleri sergisi."
+      },
+      {
+        "name": "Lületaşı Müzesi",
+        "description": "Sadece Eskişehir'e özgü madenden eserler."
+      },
+      {
+        "name": "Kurşunlu Külliyesi",
+        "description": "Manevi atmosferi olan tarihî kompleks."
+      },
+      {
+        "name": "Haller Gençlik Merkezi",
+        "description": "Eski hal binasının modern dönüşümü."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "city": "Konya",
+    "places": [
+      {
+        "name": "Mevlana Müzesi",
+        "description": "Sufi düşüncenin merkezi, yeşil kubbeyle tanınır."
+      },
+      {
+        "name": "Alaeddin Tepesi ve Camii",
+        "description": "Şehir tarihine tepeden bakış."
+      },
+      {
+        "name": "İnce Minareli Medrese",
+        "description": "Selçuklu taş işçiliği şaheseri."
+      },
+      {
+        "name": "Karatay Medresesi ve Çinili Kütüphane",
+        "description": "Renkli çini koleksiyonu."
+      },
+      {
+        "name": "Sille Köyü",
+        "description": "Tarihi Rum evleri ve taş kilisesi."
+      },
+      {
+        "name": "Çatalhöyük",
+        "description": "Dünyanın en eski yerleşim yerlerinden biri."
+      },
+      {
+        "name": "Aziziye Camii",
+        "description": "Halk arasında Küçük Ayasofya olarak bilinir."
+      },
+      {
+        "name": "Konya Tropikal Kelebek Bahçesi",
+        "description": "Binlerce kelebek türünü barındırır."
+      },
+      {
+        "name": "Meram Bağları",
+        "description": "Yeşil bahçeler ve meşhur kaymaklı kahvaltı."
+      },
+      {
+        "name": "Nasrettin Hoca Türbesi",
+        "description": "Fıkralarıyla meşhur, mizahın simgesi."
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "city": "Gaziantep",
+    "places": [
+      {
+        "name": "Zeugma Mozaik Müzesi",
+        "description": "Dünyanın en büyük mozaik koleksiyonuyla büyüler."
+      },
+      {
+        "name": "Gaziantep Kalesi",
+        "description": "Şehre hâkim tepede, tarihî savunma duvarları."
+      },
+      {
+        "name": "Bakırcılar Çarşısı",
+        "description": "El işçiliği bakır ürünlerin merkezi."
+      },
+      {
+        "name": "Emine Göğüş Mutfak Müzesi",
+        "description": "Antep mutfağının zengin lezzetlerini sergiler."
+      },
+      {
+        "name": "Rumkale",
+        "description": "Fırat Nehri kenarında, gün batımında masalsı manzara."
+      },
+      {
+        "name": "Dülük Antik Kenti",
+        "description": "Mezopotamya’nın eski yerleşim izleri."
+      },
+      {
+        "name": "Yesemek Açık Hava Heykel Atölyesi",
+        "description": "Dünyanın en büyük antik heykel atölyesi kalıntıları."
+      },
+      {
+        "name": "Oyun ve Oyuncak Müzesi",
+        "description": "Geçmişten günümüze oyuncak tarihine yolculuk."
+      },
+      {
+        "name": "Gaziantep Hayvanat Bahçesi",
+        "description": "Türkiye’nin en geniş tür çeşitliliğine sahip hayvanat bahçesi."
+      },
+      {
+        "name": "Medusa Cam Eserler Müzesi",
+        "description": "Cam sanatının çağdaş ve geleneksel örnekleri."
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "city": "Hatay",
+    "places": [
+      {
+        "name": "Harbiye (Düden) Şelaleleri",
+        "description": "Mitolojik söylemlere konu olan yemyeşil vadi."
+      },
+      {
+        "name": "St. Pierre Kilisesi",
+        "description": "Dünyanın ilk Hristiyan kiliselerinden biri."
+      },
+      {
+        "name": "Antakya Mozaik Müzesi",
+        "description": "Roma dönemi mozaik hazineleri."
+      },
+      {
+        "name": "Titus Tüneli (Clarions)",
+        "description": "Roma mühendisliğinin su kanalı harikası."
+      },
+      {
+        "name": "Vakıflı Köyü",
+        "description": "Türkiye’nin tek Ermeni köyü, renkli taş evleriyle."
+      },
+      {
+        "name": "Habib-i Neccar Camii",
+        "description": "Anadolu’nun en eski camilerinden biri."
+      },
+      {
+        "name": "Hatay Arkeoloji Müzesi",
+        "description": "Zengin Helenistik ve Roma dönemi eserleri."
+      },
+      {
+        "name": "Asi Nehri",
+        "description": "Şehir merkezinden akıp geçen bereketli nehir."
+      },
+      {
+        "name": "Uzun Çarşı",
+        "description": "Baharat, zeytinyağı ve yöresel tatlarla dolu labirent."
+      },
+      {
+        "name": "Samandağ Plajı ve Çevresi",
+        "description": "Uzun kumsal, caretta-caretta yuvalama alanı."
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "city": "İstanbul",
+    "places": [
+      {
+        "name": "Ayasofya",
+        "description": "Doğu ile Batı’nın bin yıllık buluşma noktası."
+      },
+      {
+        "name": "Topkapı Sarayı",
+        "description": "Osmanlı padişahlarının haremli ihtişamı."
+      },
+      {
+        "name": "Sultanahmet Camii",
+        "description": "Mavi çinileriyle ünlü “Mavi Cami.”"
+      },
+      {
+        "name": "Kapalıçarşı",
+        "description": "4.000’ü aşkın dükkânıyla alışverişin kalbi."
+      },
+      {
+        "name": "Galata Kulesi",
+        "description": "Boğaz manzarasına hâkim taş kule."
+      },
+      {
+        "name": "Yerebatan Sarnıcı",
+        "description": "Sütun ormanı ve loş atmosfer."
+      },
+      {
+        "name": "İstiklal Caddesi",
+        "description": "Tarihi tramvayıyla canlı gece hayatı."
+      },
+      {
+        "name": "Dolmabahçe Sarayı",
+        "description": "Batı mimarisiyle süslü Osmanlı sarayı."
+      },
+      {
+        "name": "Kız Kulesi",
+        "description": "İstanbul Boğazı’nın ortasındaki efsanevi yapı."
+      },
+      {
+        "name": "Pierre Loti Tepesi",
+        "description": "Haliç’i kuşbakışı izleyebileceğiniz nostaljik teleferik."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "city": "İzmir",
+    "places": [
+      {
+        "name": "Efes Antik Kenti",
+        "description": "Artemis Tapınağı kalıntıları ve Celsus Kütüphanesi."
+      },
+      {
+        "name": "Saat Kulesi",
+        "description": "Konak Meydanı’nın simgesi, Osmanlı zarafeti."
+      },
+      {
+        "name": "Kemeraltı Çarşısı",
+        "description": "Geleneksel el işleri ve lezzet durakları."
+      },
+      {
+        "name": "Kadifekale",
+        "description": "Şehri tepeden izleyen Bizans kalesi."
+      },
+      {
+        "name": "Alsancak Kordonboyu",
+        "description": "Denize nazır kafe ve gece hayatı."
+      },
+      {
+        "name": "Agora Ören Yeri",
+        "description": "Roma dönemi ticaret merkezi kalıntıları."
+      },
+      {
+        "name": "Çeşme Plajları",
+        "description": "Altın kumları ve sörf cenneti Alaçatı."
+      },
+      {
+        "name": "Bergama (Pergamon)",
+        "description": "Teleferikle çıkılan antik akropol."
+      },
+      {
+        "name": "İzmir Arkeoloji ve Etnografya Müzesi",
+        "description": "Zengin seramik ve heykel koleksiyonu."
+      },
+      {
+        "name": "Kadınlar Denizi",
+        "description": "Kent içindeki huzurlu plaj alanı."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "city": "Kocaeli",
+    "places": [
+      {
+        "name": "Kartepe",
+        "description": "İstanbul’a yakın, kış sporları ve doğa yürüyüşü merkezi."
+      },
+      {
+        "name": "Odayeri Tabiat Parkı",
+        "description": "Ağaç evleri ve gölet manzarası."
+      },
+      {
+        "name": "Darıca Hayvanat Bahçesi",
+        "description": "Endemik türleri görebileceğiniz dev kompleks."
+      },
+      {
+        "name": "İzmit Saat Kulesi",
+        "description": "Şehir merkezinde Osmanlı dönemi saati."
+      },
+      {
+        "name": "Seka Park",
+        "description": "Uzun sahil yolu ve sosyal yaşam alanları."
+      },
+      {
+        "name": "Ballıkayalar Tabiat Parkı",
+        "description": "Kaya tırmanışı ve yürüyüş parkurları."
+      },
+      {
+        "name": "Fenerbahçe Mahallesi",
+        "description": "Eski Rum evleri ve tarihi kilise kalıntıları."
+      },
+      {
+        "name": "Hırka-i Şerif Camii",
+        "description": "Hırka-i Şerif emanetinin saklandığı cami."
+      },
+      {
+        "name": "Hereke Halı Köyü",
+        "description": "El dokuması ipek halıların üretim merkezi."
+      },
+      {
+        "name": "Maşukiye",
+        "description": "Şelaleleri, kahvaltıcıları ve doğa içi piknik alanları."
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "city": "Mardin",
+    "places": [
+      {
+        "name": "Mardin Taş Evleri",
+        "description": "Şehrin taş işçiliğiyle örülü çarşısı."
+      },
+      {
+        "name": "Deyrulzafaran Manastırı",
+        "description": "Sarı taşlardan inşa edilmiş Süryani manastırı."
+      },
+      {
+        "name": "Zinciriye Medresesi",
+        "description": "Şehir silüetinin en yüksek noktasında."
+      },
+      {
+        "name": "Kasımiye Medresesi",
+        "description": "Detaylı taş oymalarıyla ünlü."
+      },
+      {
+        "name": "Mardin Müzesi",
+        "description": "Yakın Doğu tarihine ışık tutan eserler."
+      },
+      {
+        "name": "Mor Behnam Kilisesi",
+        "description": "Restore edilmiş eski bir Süryani kilisesi."
+      },
+      {
+        "name": "Midyat Taş Evleri",
+        "description": "Unesco geçici mirası, dar taş sokaklar."
+      },
+      {
+        "name": "Dara Antik Kenti",
+        "description": "Savunma hendekleri ve kaya mezarları."
+      },
+      {
+        "name": "Mor Gabriel Manastırı",
+        "description": "Dünyanın en eski Süryani manastırlarından."
+      },
+      {
+        "name": "Büyükkale",
+        "description": "Şehir duvarları ve panoramik Mardin manzarası."
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "city": "Mersin",
+    "places": [
+      {
+        "name": "Kızkalesi",
+        "description": "Deniz ortasındaki efsanevi kale."
+      },
+      {
+        "name": "Tarsus Şelalesi",
+        "description": "Şehir içindeki serinletici doğa harikası."
+      },
+      {
+        "name": "Cleopatra Kaplıcaları (Afri)",
+        "description": "Antik döneme uzanan termal sular."
+      },
+      {
+        "name": "Cennet ve Cehennem Obrukları",
+        "description": "Derin kara delik oluşumları."
+      },
+      {
+        "name": "Yumuktepe Höyüğü",
+        "description": "9.000 yıllık yerleşim kalıntıları."
+      },
+      {
+        "name": "Narlıkuyu",
+        "description": "Kaya altı çay bahçeleri ve balık restorantları."
+      },
+      {
+        "name": "Anamurium Antik Kenti",
+        "description": "Antik liman kenti kalıntıları."
+      },
+      {
+        "name": "Mamure Kalesi",
+        "description": "Deniz kıyısındaki sağlam taş kale."
+      },
+      {
+        "name": "Kanlıdivane",
+        "description": "Mitolojik mezarlık alanı ve doğal sütunlar."
+      },
+      {
+        "name": "Ayaş Plajı",
+        "description": "Temiz deniz ve uzun kumsalla ünlü."
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "city": "Muğla",
+    "places": [
+      {
+        "name": "Ölüdeniz Plajı",
+        "description": "Turkuaz lagün ve Babadağ yamaç paraşütü."
+      },
+      {
+        "name": "Bodrum Kalesi",
+        "description": "Sualtı Arkeoloji Müzesi’ne ev sahipliği."
+      },
+      {
+        "name": "Marmaris Koyu ve Barlar Sokağı",
+        "description": "Canlı gece hayatı."
+      },
+      {
+        "name": "Fethiye Kelebekler Vadisi",
+        "description": "Renkli kelebeğe ev sahipliği."
+      },
+      {
+        "name": "Dalyan Kanalı ve Caretta Yuvaları",
+        "description": "Kilim plajı ve çamur banyosu."
+      },
+      {
+        "name": "Datça Yarımadası",
+        "description": "Sakin koylar ve badem ağaçları."
+      },
+      {
+        "name": "Bozburun Yat Limanı",
+        "description": "El işçiliği yat üretim merkezi."
+      },
+      {
+        "name": "Selimiye Köyü",
+        "description": "Sessiz deniz kenarı balıkçı köyü."
+      },
+      {
+        "name": "Kayaköy",
+        "description": "Hayalet köy, terk edilmiş Rum taş evleri."
+      },
+      {
+        "name": "Söğüt Köyü",
+        "description": "Erken Osmanlı donanmasının kurulduğu yer."
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "city": "Sakarya",
+    "places": [
+      {
+        "name": "Sapanca Gölü",
+        "description": "Sakin suyu ve çevresindeki restoranlarıyla ünlü."
+      },
+      {
+        "name": "Maşukiye",
+        "description": "Yeşil vadide şelaleleri ve dere kenarı kahvaltı mekânları."
+      },
+      {
+        "name": "Acarlar Longozu",
+        "description": "Türkiye’nin en büyük taban suyu ormanı."
+      },
+      {
+        "name": "Taraklı Evleri",
+        "description": "Osmanlı döneminden kalma taş evleri ve ahşap sokakları."
+      },
+      {
+        "name": "Karasu Plajı",
+        "description": "Karadeniz’in uzun ve temiz kumsalı."
+      },
+      {
+        "name": "Geyve Taş Köprü",
+        "description": "Roma döneminden kalma tarihi taş kemer köprü."
+      },
+      {
+        "name": "Sakarya Nehri",
+        "description": "Rafting ve su sporları için ideal akarsu."
+      },
+      {
+        "name": "Serdivan Bilim Merkezi",
+        "description": "Etkileşimli sergileriyle ailelere hitap eder."
+      },
+      {
+        "name": "Sakarya Müzesi",
+        "description": "Arkeolojik ve etnografik eserleri barındırır."
+      },
+      {
+        "name": "Pamukova Şelaleleri",
+        "description": "Doğa yürüyüşü rotaları üzerindeki şelaleler."
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "city": "Samsun",
+    "places": [
+      {
+        "name": "Bandırma Vapuru Müzesi",
+        "description": "Atatürk’ün Karadeniz’e çıkışını simgeler."
+      },
+      {
+        "name": "Amisos Tepesi Teleferik",
+        "description": "Şehri kuşbakışı izleme noktası."
+      },
+      {
+        "name": "Amazon Kadınları Heykeli",
+        "description": "Mitolojik figürlerin dev heykeli."
+      },
+      {
+        "name": "Ladik Gölü",
+        "description": "Kuş gözlemcilerinin uğrak yeri."
+      },
+      {
+        "name": "Gazi Müzesi",
+        "description": "Samsun’da başlayan Kurtuluş Savaşı’nın izleri."
+      },
+      {
+        "name": "Tekkeköy Mağaraları",
+        "description": "Paleolitik döneme ait mağara yerleşimleri."
+      },
+      {
+        "name": "Atatürk Anıtı ve Meydanı",
+        "description": "Şehrin merkezi ve simgesi."
+      },
+      {
+        "name": "Baruthane Tabiat Parkı",
+        "description": "Çam ormanları ve mesire alanları."
+      },
+      {
+        "name": "Ondokuz Mayıs Üniversitesi Botanik Bahçesi",
+        "description": "Endemik Bitkiler."
+      },
+      {
+        "name": "Çakırlar Korusu",
+        "description": "Şehir merkezine yakın rekreasyon alanı."
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "city": "Şanlıurfa",
+    "places": [
+      {
+        "name": "Balıklıgöl",
+        "description": "Hz. İbrahim’in mucizesiyle anılan kutsal göl."
+      },
+      {
+        "name": "Göbeklitepe",
+        "description": "Dünyanın bilinen en eski tapınağı."
+      },
+      {
+        "name": "Harran Evleri",
+        "description": "Külah biçimli kerpiç evler."
+      },
+      {
+        "name": "Urfa Kalesi",
+        "description": "Şehir merkezindeki tarihi sur kalıntısı."
+      },
+      {
+        "name": "Şanlıurfa Arkeoloji ve Mozaik Müzesi",
+        "description": "Zengin mozaik koleksiyonu."
+      },
+      {
+        "name": "Halfeti (Batık Şehir)",
+        "description": "Fırat Nehri suları altında kalmış eski yerleşim."
+      },
+      {
+        "name": "Rızvaniye Camii ve Medresesi",
+        "description": "Osmanlı döneminin zarif yapısı."
+      },
+      {
+        "name": "Haleplibahçe Mozaikleri",
+        "description": "Roma dönemi villalarından mozaikler."
+      },
+      {
+        "name": "Şuayip Türbesi",
+        "description": "Peygamber soyundan geldiğine inanılan kutsal mekan."
+      },
+      {
+        "name": "Karacadağ",
+        "description": "Volkanik dağ eteklerinde balık tutma turları."
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "city": "Trabzon",
+    "places": [
+      {
+        "name": "Sümela Manastırı",
+        "description": "Maçka’da sarp kayalıklara oyulmuş manastır."
+      },
+      {
+        "name": "Uzungöl",
+        "description": "Dağlarla çevrili sakin doğa harikası göl."
+      },
+      {
+        "name": "Trabzon Kalesi",
+        "description": "Tarihi surlar üzerinde yürüyüş rotası."
+      },
+      {
+        "name": "Ayasofya Müzesi",
+        "description": "Klasik Bizans eserlerini barındırır."
+      },
+      {
+        "name": "Atatürk Köşkü",
+        "description": "Çam ormanı içinde ahşap köşk."
+      },
+      {
+        "name": "Boztepe",
+        "description": "Şehri kuşbakışı izleyebileceğiniz yamaç."
+      },
+      {
+        "name": "Vazelon Manastırı",
+        "description": "Karadeniz’in en eski manastırlarından."
+      },
+      {
+        "name": "Hıdırnebi Yaylası",
+        "description": "Geleneksel yayla kültürü ve festivaller."
+      },
+      {
+        "name": "Çal Mağarası",
+        "description": "Karstik oluşumlarıyla dikkat çeken mağara."
+      },
+      {
+        "name": "Kaymaklı Manastırı",
+        "description": "Orman içindeki tarihi yapılar."
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "city": "Van",
+    "places": [
+      {
+        "name": "Van Kalesi",
+        "description": "Urartu döneminden kalma göl kenarı kale."
+      },
+      {
+        "name": "Akdamar Adası ve Kilisesi",
+        "description": "Ermeni kilisesi ve kırmızı taş mimarisi."
+      },
+      {
+        "name": "Van Gölü Canavarı Heykeli",
+        "description": "Efsaneye atıf yapan sembolik heykel."
+      },
+      {
+        "name": "Çavuştepe Urartu Kalesi",
+        "description": "Şehrin doğusunda Urartu kalıntıları."
+      },
+      {
+        "name": "Akbelen Yolu",
+        "description": "Göl manzaralı yayla gezisi."
+      },
+      {
+        "name": "Muradiye Şelalesi",
+        "description": "Yüksekten dökülen görkemli şelale."
+      },
+      {
+        "name": "Hoşap Kalesi",
+        "description": "Siyah bazalt taşlarından inşa edilmiş kale."
+      },
+      {
+        "name": "Erciş Kültür Parkı",
+        "description": "Sahil boyunca eğlence ve dinlenme alanı."
+      },
+      {
+        "name": "Amik Gölü Kuş Cenneti (Van Yöresi)",
+        "description": "Göçmen kuşların konaklama noktası."
+      },
+      {
+        "name": "Van Kedisi Evi",
+        "description": "Yerel kedi cinsi Van kedisiyle tanışma mekânı."
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "city": "Zonguldak",
+    "places": [
+      {
+        "name": "Gökgöl Mağarası",
+        "description": "Karstik yapısıyla öne çıkan yeraltı mağarası."
+      },
+      {
+        "name": "Filyos Plajı",
+        "description": "Karadeniz’in bakir ve uzun kumsalı."
+      },
+      {
+        "name": "Ereğli Kalesi",
+        "description": "Tarihi kale ve deniz manzarası."
+      },
+      {
+        "name": "Kozlu Madenci Heykeli ve Müzesi",
+        "description": "Taşkömürü madenciliğinin simgesi."
+      },
+      {
+        "name": "Cehennemağzı Mağaraları",
+        "description": "Mitolojik hikâyelere ev sahipliği yapan mağaralar."
+      },
+      {
+        "name": "Kilimli Sahili",
+        "description": "Yaz aylarında popüler plaj alanı."
+      },
+      {
+        "name": "Gökçebey Kent Ormanı",
+        "description": "Yürüyüş ve piknik için geniş ormanlık alan."
+      },
+      {
+        "name": "Alaplı Limanı",
+        "description": "Balıkçı tekneleri ve taze balık restoranları."
+      },
+      {
+        "name": "Zonguldak Müzesi",
+        "description": "Bölgenin arkeolojik ve etnografik mirasını sunar."
+      },
+      {
+        "name": "Ölüdeniz Yaylaları",
+        "description": "Yayla evleri ve doğal güzellikler."
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "city": "Nevşehir",
+    "places": [
+      {
+        "name": "Göreme Açık Hava Müzesi",
+        "description": "Kayalara oyulmuş kiliseler ve fresklerle dolu açık hava müzesi."
+      },
+      {
+        "name": "Uçhisar Kalesi",
+        "description": "Kapadokya’yı 360° izleyebileceğiniz yüksek nokta."
+      },
+      {
+        "name": "Paşabağ Peri Bacaları",
+        "description": "Sütun biçimli peri bacalarının en yoğun olduğu alan."
+      },
+      {
+        "name": "Derinkuyu Yeraltı Şehri",
+        "description": "Çok katlı sıra dışı yeraltı yerleşimi."
+      },
+      {
+        "name": "Avanos Çömlek Atölyeleri",
+        "description": "Kızılırmak çamurundan el yapımı çömlek üretimi."
+      },
+      {
+        "name": "Zelve Vadisi",
+        "description": "Terk edilmiş kaya yerleşimleri ve göz alıcı manzara."
+      },
+      {
+        "name": "Ihlara Vadisi",
+        "description": "Kanyon içindeki tarihi kaya kiliseleri ve yürüyüş rotası."
+      },
+      {
+        "name": "Kelebekler Vadisi",
+        "description": "Nadiren görülen kelebek türlerinin yuvası."
+      },
+      {
+        "name": "Özkonak Yeraltı Şehri",
+        "description": "Dar tüneller ve savunma sistemleri örneği."
+      },
+      {
+        "name": "Ürgüp Kaya Otelleri",
+        "description": "Mağara konseptli lüks konaklama deneyimi."
+      }
+    ]
+  }
+]
