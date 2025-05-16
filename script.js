@@ -4,13 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const quizContainer = document.querySelector('.quiz-container');
     const resultsContainer = document.querySelector('.results-container');
     const wrongAnswersContainer = document.querySelector('.wrong-answers-container');
+    const savedQuestionsContainer = document.querySelector('.saved-questions-container');
 
     const startQuizBtn = document.getElementById('start-quiz');
     const showWrongBtn = document.getElementById('show-wrong');
+    const showSavedBtn = document.getElementById('show-saved');
     const nextBtn = document.getElementById('next-btn');
     const restartQuizBtn = document.getElementById('restart-quiz');
     const reviewWrongBtn = document.getElementById('review-wrong');
     const backToHomeBtn = document.getElementById('back-to-home');
+    const backToHomeFromSavedBtn = document.getElementById('back-to-home-from-saved');
 
     const questionText = document.getElementById('question');
     const cityNameText = document.getElementById('city-name');
@@ -20,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const scoreElement = document.getElementById('score');
     const totalElement = document.getElementById('total');
     const wrongAnswersList = document.getElementById('wrong-answers-list');
+    const savedQuestionsList = document.getElementById('saved-questions-list');
 
     // Quiz variables
     let cities = [];
@@ -29,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let savedQuestions = []; // Array to store saved questions
     let selectedAnswer = null;
     let currentQuestionData = null; // Store current question data
+    let currentQuizId = null; // Track current quiz session
     const minQuestionsBeforeFinish = 10; // Minimum questions before showing finish button
 
     // Load cities data
@@ -41,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Enable start button
             startQuizBtn.disabled = false;
 
-            // Check if there are any wrong answers in local storage
+            // Check if there are any wrong answers or saved questions in local storage
             loadWrongAnswers();
             loadSavedQuestions();
 
@@ -50,16 +55,24 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 showWrongBtn.style.display = 'none';
             }
+
+            if (savedQuestions.length > 0) {
+                showSavedBtn.style.display = 'block';
+            } else {
+                showSavedBtn.style.display = 'none';
+            }
         })
         .catch(error => console.error('Error loading data:', error));
 
     // Event listeners
     startQuizBtn.addEventListener('click', startQuiz);
     showWrongBtn.addEventListener('click', showWrongAnswers);
+    showSavedBtn.addEventListener('click', showSavedQuestions);
     nextBtn.addEventListener('click', nextQuestion);
     restartQuizBtn.addEventListener('click', startQuiz);
     reviewWrongBtn.addEventListener('click', showWrongAnswers);
     backToHomeBtn.addEventListener('click', backToHome);
+    backToHomeFromSavedBtn.addEventListener('click', backToHome);
 
     // Create finish quiz button
     const finishQuizBtn = document.createElement('button');
@@ -124,14 +137,23 @@ document.addEventListener('DOMContentLoaded', function () {
         welcomeScreen.style.display = 'none';
         resultsContainer.style.display = 'none';
         wrongAnswersContainer.style.display = 'none';
+        savedQuestionsContainer.style.display = 'none';
         quizContainer.style.display = 'block';
         finishQuizBtn.style.display = 'none';
 
         // Reset quiz variables
         currentQuestion = 0;
         score = 0;
-        wrongCount = 0; // Add a counter for wrong answers
-        wrongAnswers = [];
+        wrongCount = 0;
+        // Don't reset wrongAnswers array anymore
+        // Instead, create a new quiz session ID
+        currentQuizId = "Quiz " + (new Date().toLocaleString('tr-TR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        }));
 
         // Update UI
         totalQuestionsElement.textContent = '∞'; // Infinity symbol to show continuous questions
@@ -221,7 +243,14 @@ document.addEventListener('DOMContentLoaded', function () {
         answers.forEach((answer, index) => {
             const button = document.createElement('button');
             button.classList.add('answer-btn');
-            button.textContent = answer.text;
+
+            // Create HTML structure for the answer with name and description
+            const answerHTML = `
+                <div class="answer-name">${answer.text}</div>
+                <div class="answer-description">${answer.description}</div>
+            `;
+
+            button.innerHTML = answerHTML;
             button.dataset.index = index;
             button.dataset.correct = answer.correct;
             button.dataset.description = answer.description;
@@ -246,8 +275,14 @@ document.addEventListener('DOMContentLoaded', function () {
             return; // Already answered
         }
 
-        selectedAnswer = e.target.dataset.index;
-        const isCorrect = e.target.dataset.correct === 'true';
+        // Find the button that was clicked (might be a child element)
+        const clickedButton = e.target.classList.contains('answer-btn') ?
+            e.target : e.target.closest('.answer-btn');
+
+        if (!clickedButton) return; // Safety check
+
+        selectedAnswer = clickedButton.dataset.index;
+        const isCorrect = clickedButton.dataset.correct === 'true';
 
         // Find all answer buttons
         const answerButtons = document.querySelectorAll('.answer-btn');
@@ -258,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (button.dataset.correct === 'true') {
                 button.classList.add('correct');
-            } else if (button.dataset.index === selectedAnswer) {
+            } else if (button === clickedButton && !isCorrect) {
                 button.classList.add('wrong');
             }
         });
@@ -269,37 +304,45 @@ document.addEventListener('DOMContentLoaded', function () {
             id: Date.now(), // Unique ID for the question
             city: cityName,
             question: questionText.textContent,
-            selectedAnswer: e.target.textContent,
-            selectedDescription: e.target.dataset.description,
+            selectedAnswer: clickedButton.querySelector('.answer-name').textContent || clickedButton.textContent,
+            selectedDescription: clickedButton.querySelector('.answer-description')?.textContent || clickedButton.dataset.description,
             correctAnswer: '',
             correctDescription: '',
             isCorrect: isCorrect,
-            autoSaved: !isCorrect // Mark if automatically saved (for wrong answers)
+            autoSaved: !isCorrect, // Mark if automatically saved (for wrong answers)
+            quizSession: currentQuizId // Add quiz session ID
         };
 
         // Find the correct answer
         answerButtons.forEach(button => {
             if (button.dataset.correct === 'true') {
-                questionDetails.correctAnswer = button.textContent;
-                questionDetails.correctDescription = button.dataset.description;
+                questionDetails.correctAnswer = button.querySelector('.answer-name')?.textContent || button.textContent;
+                questionDetails.correctDescription = button.querySelector('.answer-description')?.textContent || button.dataset.description;
             }
         });
 
         // Update score
         if (isCorrect) {
             score++;
+            // Show save button in normal state for correct answers
+            saveQuestionBtn.textContent = 'Soruyu Kaydet';
+            saveQuestionBtn.classList.remove('saved', 'auto-saved');
         } else {
-            wrongCount++; // Increment wrong counter
-            // Store wrong answer and auto-save it
-            wrongAnswers.push(questionDetails);
-            saveWrongAnswers();
+            // Only increment wrong counter and save wrong answers if the answer is actually wrong
+            wrongCount++;
+
+            // Add to wrong answers and save
+            if (!wrongAnswers.some(q => q.id === questionDetails.id)) {
+                wrongAnswers.push(questionDetails);
+                saveWrongAnswers();
+            }
 
             // For wrong answers, show as automatically saved
             saveQuestionBtn.textContent = 'Otomatik Kaydedildi ✓';
             saveQuestionBtn.classList.add('saved', 'auto-saved');
 
-            // Also add to saved questions
-            saveQuestion(questionDetails);
+            // Update UI for wrong answers button
+            showWrongBtn.style.display = 'block';
         }
 
         // Update the stats display
@@ -366,9 +409,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Save question
     function saveQuestion(questionData) {
+        // Make sure savedQuestions is loaded from localStorage
+        loadSavedQuestions();
+
         if (!isSavedQuestion(questionData.id)) {
             savedQuestions.push(questionData);
             saveSavedQuestions();
+
+            // Make sure the saved questions button is visible
+            showSavedBtn.style.display = 'block';
         }
     }
 
@@ -388,6 +437,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const saved = localStorage.getItem('quizSavedQuestions');
         if (saved) {
             savedQuestions = JSON.parse(saved);
+        } else {
+            savedQuestions = [];
         }
     }
 
@@ -412,14 +463,92 @@ document.addEventListener('DOMContentLoaded', function () {
         welcomeScreen.style.display = 'none';
         quizContainer.style.display = 'none';
         resultsContainer.style.display = 'none';
+        savedQuestionsContainer.style.display = 'none';
         wrongAnswersContainer.style.display = 'block';
 
         loadWrongAnswers();
-        renderWrongAnswers();
+
+        // Create quiz session selector if it doesn't exist
+        if (!document.getElementById('quiz-session-selector')) {
+            createQuizSessionSelector();
+        } else {
+            // Update the selector options
+            updateQuizSessionSelector();
+        }
+
+        renderWrongAnswers('all'); // Show all sessions by default
+    }
+
+    // Create quiz session selector dropdown
+    function createQuizSessionSelector() {
+        // Create container
+        const selectorContainer = document.createElement('div');
+        selectorContainer.className = 'session-selector-container';
+
+        // Create label
+        const selectorLabel = document.createElement('label');
+        selectorLabel.htmlFor = 'quiz-session-selector';
+        selectorLabel.textContent = 'Quiz oturumunu seçin: ';
+
+        // Create select element
+        const selector = document.createElement('select');
+        selector.id = 'quiz-session-selector';
+        selector.className = 'quiz-session-selector';
+
+        // Add change event listener
+        selector.addEventListener('change', function () {
+            renderWrongAnswers(this.value);
+        });
+
+        // Add elements to container
+        selectorContainer.appendChild(selectorLabel);
+        selectorContainer.appendChild(selector);
+
+        // Add container to wrong answers container, after the title
+        const title = wrongAnswersContainer.querySelector('h2');
+        title.insertAdjacentElement('afterend', selectorContainer);
+
+        // Update the selector options
+        updateQuizSessionSelector();
+    }
+
+    // Update quiz session selector options
+    function updateQuizSessionSelector() {
+        const selector = document.getElementById('quiz-session-selector');
+        if (!selector) return;
+
+        // Clear current options
+        selector.innerHTML = '';
+
+        // Add "All Sessions" option
+        const allOption = document.createElement('option');
+        allOption.value = 'all';
+        allOption.textContent = 'Tüm Oturumlar';
+        selector.appendChild(allOption);
+
+        // Get unique quiz sessions
+        const sessions = [];
+        wrongAnswers.forEach(item => {
+            const session = item.quizSession || 'Eski Quiz';
+            if (!sessions.includes(session)) {
+                sessions.push(session);
+            }
+        });
+
+        // Sort sessions (newest first)
+        sessions.sort((a, b) => b.localeCompare(a));
+
+        // Add options for each session
+        sessions.forEach(session => {
+            const option = document.createElement('option');
+            option.value = session;
+            option.textContent = session;
+            selector.appendChild(option);
+        });
     }
 
     // Render wrong answers
-    function renderWrongAnswers() {
+    function renderWrongAnswers(sessionFilter = 'all') {
         wrongAnswersList.innerHTML = '';
 
         if (wrongAnswers.length === 0) {
@@ -429,43 +558,87 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        wrongAnswers.forEach((item, index) => {
-            const wrongItem = document.createElement('div');
-            wrongItem.classList.add('wrong-item');
+        // Filter wrong answers by session if needed
+        let filteredAnswers = wrongAnswers;
+        if (sessionFilter !== 'all') {
+            filteredAnswers = wrongAnswers.filter(item =>
+                (item.quizSession || 'Eski Quiz') === sessionFilter);
 
-            // Create header with title and delete button
-            const wrongItemHeader = document.createElement('div');
-            wrongItemHeader.classList.add('wrong-item-header');
+            if (filteredAnswers.length === 0) {
+                const noWrong = document.createElement('p');
+                noWrong.textContent = 'Bu oturumda yanlış cevaplanan soru bulunmamaktadır.';
+                wrongAnswersList.appendChild(noWrong);
+                return;
+            }
+        }
 
-            const cityTitle = document.createElement('h3');
-            cityTitle.textContent = item.city;
+        // Group wrong answers by quiz session
+        const groupedWrongAnswers = {};
+        filteredAnswers.forEach(item => {
+            const quizSession = item.quizSession || 'Eski Quiz'; // Use 'Eski Quiz' for older entries without session
+            if (!groupedWrongAnswers[quizSession]) {
+                groupedWrongAnswers[quizSession] = [];
+            }
+            groupedWrongAnswers[quizSession].push(item);
+        });
 
-            const deleteBtn = document.createElement('button');
-            deleteBtn.classList.add('delete-btn');
-            deleteBtn.textContent = 'Sil';
-            deleteBtn.dataset.id = item.id;
-            deleteBtn.addEventListener('click', deleteWrongAnswer);
+        // Sort quiz sessions by newest first
+        const sortedSessions = Object.keys(groupedWrongAnswers).sort((a, b) => {
+            return b.localeCompare(a);
+        });
 
-            wrongItemHeader.appendChild(cityTitle);
-            wrongItemHeader.appendChild(deleteBtn);
+        // Render each group
+        sortedSessions.forEach(session => {
+            // Create session header
+            const sessionHeader = document.createElement('div');
+            sessionHeader.classList.add('quiz-session-header');
+            sessionHeader.textContent = session;
+            wrongAnswersList.appendChild(sessionHeader);
 
-            const questionText = document.createElement('p');
-            questionText.textContent = item.question;
+            // Render questions for this session
+            groupedWrongAnswers[session].forEach(item => {
+                const wrongItem = document.createElement('div');
+                wrongItem.classList.add('wrong-item');
 
-            const wrongAnswer = document.createElement('div');
-            wrongAnswer.classList.add('wrong-answer');
-            wrongAnswer.textContent = `Seçilen: ${item.selectedAnswer} (${item.selectedDescription})`;
+                // If it's an older question without proper quiz session, mark it
+                if (session === 'Eski Quiz') {
+                    wrongItem.classList.add('old-quiz-item');
+                }
 
-            const correctAnswer = document.createElement('div');
-            correctAnswer.classList.add('correct-answer');
-            correctAnswer.textContent = `Doğru cevap: ${item.correctAnswer} (${item.correctDescription})`;
+                // Create header with title and delete button
+                const wrongItemHeader = document.createElement('div');
+                wrongItemHeader.classList.add('wrong-item-header');
 
-            wrongItem.appendChild(wrongItemHeader);
-            wrongItem.appendChild(questionText);
-            wrongItem.appendChild(wrongAnswer);
-            wrongItem.appendChild(correctAnswer);
+                const cityTitle = document.createElement('h3');
+                cityTitle.textContent = item.city;
 
-            wrongAnswersList.appendChild(wrongItem);
+                const deleteBtn = document.createElement('button');
+                deleteBtn.classList.add('delete-btn');
+                deleteBtn.textContent = 'Sil';
+                deleteBtn.dataset.id = item.id;
+                deleteBtn.addEventListener('click', deleteWrongAnswer);
+
+                wrongItemHeader.appendChild(cityTitle);
+                wrongItemHeader.appendChild(deleteBtn);
+
+                const questionText = document.createElement('p');
+                questionText.textContent = item.question;
+
+                const wrongAnswer = document.createElement('div');
+                wrongAnswer.classList.add('wrong-answer');
+                wrongAnswer.textContent = `Seçilen: ${item.selectedAnswer} (${item.selectedDescription})`;
+
+                const correctAnswer = document.createElement('div');
+                correctAnswer.classList.add('correct-answer');
+                correctAnswer.textContent = `Doğru cevap: ${item.correctAnswer} (${item.correctDescription})`;
+
+                wrongItem.appendChild(wrongItemHeader);
+                wrongItem.appendChild(questionText);
+                wrongItem.appendChild(wrongAnswer);
+                wrongItem.appendChild(correctAnswer);
+
+                wrongAnswersList.appendChild(wrongItem);
+            });
         });
     }
 
@@ -492,16 +665,143 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Show saved questions
+    function showSavedQuestions() {
+        welcomeScreen.style.display = 'none';
+        quizContainer.style.display = 'none';
+        resultsContainer.style.display = 'none';
+        wrongAnswersContainer.style.display = 'none';
+        savedQuestionsContainer.style.display = 'block';
+
+        loadSavedQuestions();
+        renderSavedQuestions();
+    }
+
+    // Render saved questions
+    function renderSavedQuestions() {
+        savedQuestionsList.innerHTML = '';
+
+        if (savedQuestions.length === 0) {
+            const noSaved = document.createElement('p');
+            noSaved.textContent = 'Henüz kaydettiğiniz soru bulunmamaktadır.';
+            savedQuestionsList.appendChild(noSaved);
+            return;
+        }
+
+        savedQuestions.forEach((item) => {
+            const savedItem = document.createElement('div');
+            savedItem.classList.add('saved-item');
+
+            // Add a class based on whether it was correct or incorrect
+            if (item.isCorrect) {
+                savedItem.classList.add('correct-item');
+            } else {
+                savedItem.classList.add('wrong-item');
+            }
+
+            // Create header with title and delete button
+            const savedItemHeader = document.createElement('div');
+            savedItemHeader.classList.add('saved-item-header');
+
+            const cityTitle = document.createElement('h3');
+            cityTitle.textContent = item.city;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.classList.add('delete-btn');
+            deleteBtn.textContent = 'Sil';
+            deleteBtn.dataset.id = item.id;
+            deleteBtn.addEventListener('click', deleteSavedQuestion);
+
+            savedItemHeader.appendChild(cityTitle);
+            savedItemHeader.appendChild(deleteBtn);
+
+            const questionText = document.createElement('p');
+            questionText.textContent = item.question;
+
+            // Only show selected/correct distinction if the question was answered incorrectly
+            if (!item.isCorrect) {
+                const wrongAnswer = document.createElement('div');
+                wrongAnswer.classList.add('wrong-answer');
+                wrongAnswer.textContent = `Seçilen: ${item.selectedAnswer} (${item.selectedDescription})`;
+
+                const correctAnswer = document.createElement('div');
+                correctAnswer.classList.add('correct-answer');
+                correctAnswer.textContent = `Doğru cevap: ${item.correctAnswer} (${item.correctDescription})`;
+
+                savedItem.appendChild(savedItemHeader);
+                savedItem.appendChild(questionText);
+                savedItem.appendChild(wrongAnswer);
+                savedItem.appendChild(correctAnswer);
+            } else {
+                // Just show the correct answer for correctly answered questions
+                const correctAnswer = document.createElement('div');
+                correctAnswer.classList.add('correct-answer');
+                correctAnswer.textContent = `Cevap: ${item.selectedAnswer} (${item.selectedDescription})`;
+
+                savedItem.appendChild(savedItemHeader);
+                savedItem.appendChild(questionText);
+                savedItem.appendChild(correctAnswer);
+            }
+
+            savedQuestionsList.appendChild(savedItem);
+        });
+    }
+
+    // Delete saved question
+    function deleteSavedQuestion(e) {
+        const id = parseInt(e.target.dataset.id);
+
+        // Remove from saved questions
+        savedQuestions = savedQuestions.filter(item => item.id !== id);
+
+        // Also remove from wrong answers if it exists there
+        wrongAnswers = wrongAnswers.filter(item => item.id !== id);
+
+        // Save changes
+        saveSavedQuestions();
+        saveWrongAnswers();
+
+        // Re-render saved questions list
+        renderSavedQuestions();
+
+        // Update UI buttons visibility
+        if (savedQuestions.length === 0) {
+            showSavedBtn.style.display = 'none';
+        }
+
+        if (wrongAnswers.length === 0) {
+            showWrongBtn.style.display = 'none';
+        }
+    }
+
     // Back to home
     function backToHome() {
         wrongAnswersContainer.style.display = 'none';
         resultsContainer.style.display = 'none';
         quizContainer.style.display = 'none';
+        savedQuestionsContainer.style.display = 'none';
         welcomeScreen.style.display = 'block';
     }
 
     // Save wrong answers to local storage
     function saveWrongAnswers() {
+        // First load any existing answers that might not be in memory
+        const savedWrongAnswers = localStorage.getItem('quizWrongAnswers');
+        if (savedWrongAnswers) {
+            const savedArray = JSON.parse(savedWrongAnswers);
+
+            // Merge saved answers with current answers, avoiding duplicates
+            wrongAnswers.forEach(item => {
+                if (!savedArray.some(saved => saved.id === item.id)) {
+                    savedArray.push(item);
+                }
+            });
+
+            // Update the wrongAnswers array with the merged result
+            wrongAnswers = savedArray;
+        }
+
+        // Save the merged array back to localStorage
         localStorage.setItem('quizWrongAnswers', JSON.stringify(wrongAnswers));
     }
 
@@ -510,6 +810,23 @@ document.addEventListener('DOMContentLoaded', function () {
         const savedWrongAnswers = localStorage.getItem('quizWrongAnswers');
         if (savedWrongAnswers) {
             wrongAnswers = JSON.parse(savedWrongAnswers);
+        } else {
+            wrongAnswers = [];
+        }
+    }
+
+    // Save saved questions to local storage
+    function saveSavedQuestions() {
+        localStorage.setItem('quizSavedQuestions', JSON.stringify(savedQuestions));
+    }
+
+    // Load saved questions from local storage
+    function loadSavedQuestions() {
+        const saved = localStorage.getItem('quizSavedQuestions');
+        if (saved) {
+            savedQuestions = JSON.parse(saved);
+        } else {
+            savedQuestions = [];
         }
     }
 });
